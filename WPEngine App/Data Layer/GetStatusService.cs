@@ -32,7 +32,7 @@ namespace Data
                 {
                     for (var i = 0; i < accountsList.Accounts.Count; i++)
                     {
-                        var query = apiUrl + "accounts/" + accountsList.Accounts[i].AccountId.ToString();
+                        var query = apiUrl + "accounts/" + accountsList.Accounts[i].AccountID.ToString();
                         string json = client.DownloadString(query);
                         var dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
                         accountsList.Accounts[i].Status = dictionary["status"];

@@ -4,7 +4,7 @@ namespace Models
 {
     public class AccountItemModel
     {
-        public int AccountId { get; set; }
+        public int AccountID { get; set; }
         public string AccountName { get; set; }
         public string FirstName { get; set; }
         public string CreatedOn { get; set; }

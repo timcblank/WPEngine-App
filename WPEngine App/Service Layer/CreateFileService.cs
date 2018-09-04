@@ -5,6 +5,7 @@ using System.Linq;
 using Models;
 using System.Reflection;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace Services
 {
@@ -31,8 +32,9 @@ namespace Services
 
                     using (var writer = new StreamWriter(path))
                     {
-                        // write out the header line
-                        writer.WriteLine(propNames);
+                        // write out the header line and change the camelcase for the property names to space separated strings.
+                        var res = Regex.Replace(propNames, "([A-Z])(?!.[A-Z])", " $1").Trim();
+                        writer.WriteLine(res);
 
                         // loop through the account list for each item
                         // we just need the values so it is simple enough to serialize the object to json

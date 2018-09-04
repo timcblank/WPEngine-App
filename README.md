@@ -35,3 +35,5 @@ You may use any open source / publicly available libraries for that language tha
 
 The project is a console app that can be compiled and run by script. The project uses AutoFac for dependency injection,
 and has been developed with scalability plus maintainability in mind. 
+
+The test-data.csv file was provided as a test use file.

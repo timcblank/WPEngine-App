@@ -26,15 +26,13 @@ namespace Services
                 {
                     // get the list of property names from the AccountItemModel object. These will be the header row in the new CSV file
                     IList<PropertyInfo> props = new List<PropertyInfo>(accountList.Accounts[0].GetType().GetProperties());
-                    var propNames = string.Join(",", props.Select(x => x.Name));
+                    var propNames = string.Join(",", props.Select(x => Regex.Replace(x.Name, "([A-Z])([A-Z])([a-z])|([a-z])([A-Z])", "$1$4 $2$3$5").Trim()));
 
                     var path = File.Create(outputFile);
 
                     using (var writer = new StreamWriter(path))
                     {
-                        // write out the header line and change the camelcase for the property names to space separated strings.
-                        var res = Regex.Replace(propNames, "([A-Z])(?!.[A-Z])", " $1").Trim();
-                        writer.WriteLine(res);
+                        writer.WriteLine(propNames);
 
                         // loop through the account list for each item
                         // we just need the values so it is simple enough to serialize the object to json

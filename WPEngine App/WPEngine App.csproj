@@ -66,7 +66,7 @@
     <Compile Include="ProcessorRegistrationModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service Layer\HelpMenu.cs" />
+    <Compile Include="Service Layer\HelpMenuService.cs" />
     <Compile Include="Service Layer\Interfaces\ILogger.cs" />
     <Compile Include="Service Layer\Interfaces\IProcessFileService.cs" />
     <Compile Include="Service Layer\Logger.cs" />
